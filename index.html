@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+    <title>INDICADORES</title>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check"><i class="fas fa-angle-double-right" id="btn"></i></label>
+    <label for="check"><i class="fas fa-angle-double-left" id="cancel"></i></label>
+    <div class="sidebar">
+        <header>LOLITA</header>
+        <ul>
+            <li><a href="#"><i class="fas fa-angle-double-left" style="margin-right:10px"></i>Dashboard</a></li>
+            <li ><a href="#">
+                    <i class="far fa-sad-tear" style="margin-right:10px"></i>INDICADORES DE LA GESTIÓN LOGÍSTICA
+                </a>
+                <li class="segu" onclick="yampi('kpi7')"><a href="#" >% Costo de Distribución</a></li>
+                <li class="segu" onclick="yampi('kpi8')"><a href="#" >Coste de Distribución x Uni. de Embalaje Vendida</a></li>
+                <li class="segu" onclick="yampi('kpi9')"><a href="#" >Costo de Distribución por unidad de Peso Vendida</a></li>
+            </li>
+            <li ><a href="#"><i class="far fa-sad-tear" style="margin-right:10px"></i>INDICADORES DE INVENTARIOS</a>
+                <li class="segu" onclick="yampi('kpi4')"><a href="#" >Dias de Inventario</a></li>
+                <li class="segu" onclick="yampi('kpi5')"><a href="#" >Faltantes de Inventario</a></li>
+                <li class="segu" onclick="yampi('kpi6')"><a href="#" >Begin Again</a></li>
+            </li>
+            <li ><a href="#"><i class="far fa-sad-tear" style="margin-right:10px"></i>INDICADORES DE SERVICIO</a>
+                <li class="segu" onclick="yampi('kpi1')"><a href="#" >Pedidos Entregados a Tiempo</a></li>
+                <li class="segu" onclick="yampi('kpi2')"><a href="#" >Pedidos Entregados Completos</a></li>
+                <li class="segu" onclick="yampi('kpi3')"><a href="#" >Ciclo de orden de Compra</a></li>
+            </li>
+            
+        </ul>
+    </div>
+    <section id="seccion1">
+        
+        <div id="kpi1" class="form" >
+          <label>Pedidos Entregados a Tiempo:</label>
+            <input type="text" id="NPE"  placeholder="NUMERO DE PEDIDOS ENTREGADOS">
+            <input type="text" id="RDPP"  placeholder="RECIBIDOS DURANTE EL PERIODO EN LA FECHA O PERIODO PACTADO" >
+            <button id="calcularNPE" onclick="karhem1()">CALCULAR</button>
+            <div id="resultado"></div>
+        </div>
+        <div id="kpi2" class="form" >
+            <label>Pedidos Entregados Completos: </label>
+              <input type="text" id="CRS"  placeholder="Cant. Referencias solicitadas">
+              <input type="text" id="CRE"  placeholder="Cant. Referencias entregadas" >
+              <button id="calcularNPE" onclick="karhem2()">AÑADIR</button>
+              <button id="calcularNPE" onclick="karhem21()">CALCULAR</button>
+              <table class="default">
+                <tr>
+                  <th>Nº Pedidos</th>
+                  <th>Cant.Ref. Solicitadas</th>
+                  <th>Cant.Ref. Entregadas</th>
+                </tr>
+              </table>
+              <div id="resultado1"></div>
+        </div>
+        <div id="kpi3" class="form" >
+            <label>Ciclo De La Orden De Compra:</label>
+              <input type="text" id="COC"  placeholder="Ciclo de la orden de compra">
+              <button id="calcularNPE" onclick="karhem3()">AÑADIR</button>
+              <button id="calcularNPE" onclick="karhem31()">CALCULAR</button>
+              <table class="default">
+                <tr>
+                  <th>Nº Pedidos</th>
+                  <th>Ciclo de la orden de compra</th>
+                  
+                </tr>
+              </table>
+              <div id="resultado2"></div>
+        </div>    
+               
+    <!-- </section>
+    <section id="seccion2"> -->
+        
+      <div id="kpi4" class="form" >
+        <label>Días De Inventario:</label>
+          <input type="text" id="CPI"  placeholder="COSTO PROMEDIO DEL INVENTARIO ">
+          <input type="text" id="DM"  placeholder="DIAS DEL MES" >
+          
+          <button id="calcularNPE" onclick="karhem4()">AÑADIR</button>
+          <input type="text" id="CNMVP"  placeholder="COSTO NETO DE LA MERCANCIA VENDIDA EN EL PERIODO" >
+          <button id="calcularNPE" onclick="karhem41()">CALCULAR</button>
+          <table class="default">
+            <tr>
+              <th>N° DIAS</th>
+              <th>Costo de Inventario</th>            
+            </tr>
+          </table>
+          <div id="resultado3"></div>
+      </div>
+
+      <div id="kpi5" class="form" >
+          <label>Faltantes De Inventario: </label>
+            <input type="text" id="NRR"  placeholder="Nº de Referencias de ruptura">
+            <input type="text" id="NRS"  placeholder="Nº de referencias de seguimiento" >
+            <button id="calcularNPE" onclick="karhem5()">AÑADIR</button>
+            <button id="calcularNPE" onclick="karhem51()">CALCULAR</button>
+            <table class="default">
+              <tr>
+                <th>SEMANA</th>
+                <th>Nº de Referencias de ruptura</th>
+                <th>Nº de referencias de seguimiento</th>
+                <th>Resultado(%)</th>
+              </tr>
+            </table>
+            <div id="resultado4"></div>
+      </div>
+      <div id="kpi6" class="form" >
+
+      </div>
+
+    <!-- </section>
+
+    <section id="seccion3"> -->
+        
+      <div id="kpi7" class="form" >
+        <label>PORCENTAJE DE COSTO DE DISTRIBUCIÓN:</label>
+          <input type="text" id="CDP"  placeholder="COSTOS DE DISTRIBUCION DEL PERIODO">
+          <input type="text" id="VNP"  placeholder="VENTAS NETAS DEL PERIODO" >
+          <button id="calcularNPE" onclick="karhem6()">CALCULAR</button>
+          <div id="resultado5"></div>
+      </div>
+      <div id="kpi8" class="form">
+        <label>Costo de distribución por unidad de embalaje vendida:</label>
+          <input type="text" id="CDP1"  placeholder="COSTOS DE DISTRIBUCION DEL PERIODO">
+          <input type="text" id="TUEV"  placeholder="TOTAL UNIDADES EMBALAJE VENDIDAS EN PERIODO" >
+          <button id="calcularNPE" onclick="karhem7()">CALCULAR</button>
+          <div id="resultado6"></div>
+      </div>
+      <div id="kpi9" class="form" >
+        <label>Costo de distribución por unidad de peso vendida:</label>
+          <input type="text" id="CDP2"  placeholder="COSTOS DE DISTRIBUCION DEL PERIODO">
+          <input type="text" id="TKM"  placeholder="TOTAL KILOGRAMOS VENDIDOS EN PERIODO" >
+          <button id="calcularNPE" onclick="karhem8()">CALCULAR</button>
+          <div id="resultado7"></div>
+      </div>
+      <br>
+      <div class="form limi" >
+        <h4>Limites de Aceptabilidad: </h4>
+          <input type="text" id="LI"  placeholder="L. Inferior">
+          <input type="text" id="LS"  placeholder="L. Superior" > 
+      </div>
+      <br>
+      <div class="form sema">
+        <div id="red"></div>
+        <div id="green"></div>
+      </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
